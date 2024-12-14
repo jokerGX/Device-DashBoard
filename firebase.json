@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "site": "charge-display",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+
+
