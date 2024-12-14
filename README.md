@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Device Status Dashboard
 
-## Getting Started
+## Overview
+The **Device Status Dashboard** is a web application that allows users to monitor the charging status and thermal state of their iOS devices in real time. It seamlessly integrates with an iOS app and Firebase to provide up-to-date information about battery levels, device status, and thermal conditions.
 
-First, run the development server:
+## Features
+- **Real-Time Monitoring:** View battery percentage and thermal state of connected devices.
+- **Device Status:** Displays if devices are online or offline.
+- **Data Synchronization:** Automatically pulls data from Firebase, ensuring accurate and current device information.
+- **Search and Filtering:** Easily find and filter devices.
+- **Last Seen Information:** Provides timestamped updates of device status.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How It Works
+1. **iOS App Integration:** Users install the companion iOS app on their devices.
+2. **Automatic Data Push:** The iOS app automatically pushes device data (e.g., battery level, thermal state, and status) to Firebase.
+3. **Web Dashboard:** The web dashboard continuously fetches data from Firebase to display device information.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation and Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+1. An active Firebase project.
+2. The companion iOS app installed on the devices you want to monitor.
+3. A modern web browser to access the dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Setup Instructions
 
-## Learn More
+#### Firebase Configuration
+1. Create a Firebase project in your [Firebase Console](https://console.firebase.google.com/).
+2. Add your Firebase project's configuration details to both the iOS app and the web app.
+   - **iOS App:** Configure the Firebase SDK in the app by adding your `GoogleService-Info.plist`.
+   - **Web App:** Update the `firebaseConfig` object in the web app's JavaScript code with your Firebase API keys and project details.
 
-To learn more about Next.js, take a look at the following resources:
+#### Deploy the Web App
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd <repository_folder>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. (Optional) Build and deploy for production:
+   ```bash
+   npm run build
+   ```
+   Deploy the built files to your web server or hosting service (e.g., Firebase Hosting).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### iOS App Installation
+1. Download the iOS app from the App Store or directly from the provided link.
+2. Open the app, log in, and allow necessary permissions for data collection.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage
+1. Open the web dashboard in your browser.
+2. Log in using your credentials.
+3. View all connected devices and their statuses.
+   - **Battery Percentage:** Displays the current charge level of each device.
+   - **Thermal State:** Indicates the current thermal condition (e.g., Nominal).
+   - **Last Seen:** Shows when the device was last online.
+4. Use the search bar or filters to find specific devices.
 
-## Deploy on Vercel
+## Technologies Used
+- **Frontend:** React.js, HTML, CSS
+- **Backend:** Firebase Realtime Database
+- **Mobile App:** Swift (iOS)
+- **Hosting:** Firebase Hosting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Troubleshooting
+- **No Devices Showing:** Ensure the iOS app is installed and the device has an active internet connection.
+- **Outdated Information:** Check the Firebase connection and ensure the iOS app is pushing data correctly.
+- **Dashboard Not Loading:** Verify your Firebase configuration and web hosting setup.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Screenshot
+![Device Status Dashboard](display.jpg)
+
